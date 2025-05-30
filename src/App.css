@@ -13,13 +13,13 @@
   --text-color: hsl(var(--hue), var(--sat), 26%);
   --body-color: hsl(var(--hue), var(--sat), 78%);
     --container-color: rgb(223, 219, 219);
-    ;
+    --btn-project: rgba(4, 139, 22, 0.9);
   --notification-bg: rgba(255, 255, 255, 0.98);
   --services-modal:rgb(223, 219, 219);
   --notification-header-color: rgba(17, 24, 39, 0.9);
   --notification-text-color: rgba(51, 51, 51, 0.9);
   --notification-close-color: rgba(107, 114, 128, 0.6);
-  --tech__used: rgba(201, 196, 196, 0.603);
+  --tech__used: rgba(105, 103, 103, 0.836);
   --body-font: "poppins", sans-serif;
   --big-font-size: 3.5rem;
   --h1-font-size: 2.25rem;
@@ -48,7 +48,7 @@
   --scrollbar-thumb-hover: #555;
   --box-shadow-btn:5px 20px 30px rgba(0, 0, 0, 0.2);
   --transform-btn:translatey(-5px);
-  --tech-slide:rgba(0, 0, 0, 0.1);
+  --tech-slide:rgba(0, 0, 0, 0.248);
   --tech-slide-hover:rgba(0, 0, 0, 0.3);
 }
 
@@ -68,7 +68,7 @@ body.dark__mode {
   --container-color: rgb(24, 23, 23);
   --services-modal:rgb(24, 23, 23);
   --border: 1px solid rgba(231, 230, 230, 0.3);
-  --tech-slide:rgba(240, 233, 233, 0.568);
+  --tech-slide:rgba(94, 92, 92, 0.568);
   --tech-slide-hover:rgba(240, 233, 233, 0.781);
   --scrollbar-track: #2a2a2a;
   --scrollbar-thumb: #666;

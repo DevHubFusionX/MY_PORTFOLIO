@@ -1,0 +1,140 @@
+.notification-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.notification-content {
+  background: var(--container-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  width: 90%;
+  color: var(--title-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.notification-header h3 {
+  margin: 0;
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: var(--title-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-body {
+  margin-bottom: 1.5rem;
+}
+
+.notification-body p {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.review-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--text-color-light);
+  border-radius: 0.5rem;
+  background: var(--container-color);
+  color: var(--title-color);
+  margin-top: 1rem;
+  resize: vertical;
+  font-family: inherit;
+  min-height: 100px;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.notification-actions button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+
+.btn-submit {
+  background: var(--first-color);
+  color: var(--title-color);
+}
+
+.btn-submit:hover {
+  background: var(--first-color-alt);
+}
+
+.btn-later {
+  background: var(--text-color-light);
+  color: var(--title-color);
+}
+
+.btn-later:hover {
+  background: var(--text-color);
+  color: var(--container-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .notification-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .notification-actions {
+    flex-direction: column;
+  }
+  
+  .notification-actions button {
+    width: 100%;
+  }
+}

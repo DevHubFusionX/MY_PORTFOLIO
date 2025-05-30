@@ -27,7 +27,7 @@ const Notification = ({ message, type, show, onClose }) => {
       
       return () => clearTimeout(timer);
     }
-  }, [show]);
+  });
   
   const handleClose = () => {
     setIsExiting(true);

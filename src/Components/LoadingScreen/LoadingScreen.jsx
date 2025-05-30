@@ -45,8 +45,7 @@ const LoadingScreen = ({ className }) => {
     <div className={`loading-screen ${isExiting ? 'fade-out' : ''} ${className}`}>
       <div className="loading-content">
         <div className="text-3d">
-          <span className="text-3d-inner">FRANK</span>
-          <span className="text-3d-inner">LYN</span>
+          <span className="text-3d-inner">FRANKLYN</span>
         </div>
         <Loader/>
       </div>
