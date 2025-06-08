@@ -1,8 +1,15 @@
-
 /** @format */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&0display=swap');
+
+@font-face {
+  font-family: 'Anurati';
+  src: url('../assets/fonts/Anurati-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --header-height: 3rem;
@@ -135,6 +142,8 @@ body.dark__mode {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Anurati;
+  scrollbar-width: none;
 }
 
 html {

@@ -10,10 +10,14 @@ import Button from '../Button/Button'
 const Data = () => {
   return (
     <div className="home__data">
-        <h1 className="home__title">Anyanwu Franklin</h1>
-        <h3 className='home__subtitle'> web Developer</h3>
-        <p className="home__description">Passionate about creating clean, modern, and responsive websites that deliver exceptional user experiences. I specialize in front-end design and development, helping brands bring their ideas to life online.
-        .</p>
+        <h1 className="home__title">Franklin</h1>
+        <h3 className='home__subtitle'>Full Stack Developer</h3>
+        <p className="home__description">
+          👋 Hello! I'm Anyanwu Franklin, a passionate Full Stack Developer crafting elegant digital experiences. 
+          I specialize in building responsive, user-centric web applications using modern technologies. 
+          With a keen eye for detail and a commitment to clean code, I transform complex problems into simple, 
+          beautiful, and intuitive solutions.
+        </p>
         <Button/>
     </div>
   )
