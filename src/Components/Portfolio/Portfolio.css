@@ -1,308 +1,442 @@
-/** @format */
+.portfolio {
+  padding: 6rem 0 2rem;
+}
 
 .portfolio__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 1.5rem;
-  padding: 6rem 0;
-  margin: 0rem 1.5rem;
-}
-
-.portfolio__content {
-  margin-top: 3rem;
-  width: 95%;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  overflow: hidden;
 }
 
-/* Modern Swiper Carousel Styles */
 .portfolio-swiper {
   width: 100%;
-  padding: 40px 0;
-  overflow: visible;
+  padding: 50px 0;
 }
 
-.swiper-slide-custom {
-  width: 200px;
-  height: auto;
-  transition: all 0.3s ease;
-  opacity: 0.7;
-  transform: scale(0.85);
-}
-
-.swiper-slide-active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 1;
-}
-
-.project-card {
-  background-color: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+.portfolio__card {
+  background: var(--container-color);
+  border: var(--border);
+  border-radius: 20px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); */
-}
-
-.project-image-container {
   position: relative;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.portfolio__card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-btn);
+  border-color: var(--title-color);
+}
+
+.portfolio__image-container {
+  position: relative;
+  height: 250px;
   overflow: hidden;
-  aspect-ratio: 16/10;
-  display: flex;
+  display:  flex;
   align-items: center;
   justify-content: center;
-  max-height: 200px;
-  border-radius: 12px 12px 0 0;
-
 }
 
-.project-image {
+.portfolio__image {
   width: 100%;
   height: 100%;
-  object-fit: center;
+  object-fit: cover;
+  object-position: center;
   transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-image {
-  transform: scale(1.05);
+.portfolio__card:hover .portfolio__image {
+  transform: scale(1.1);
 }
 
-.project-overlay {
+.portfolio__overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
 }
 
-.project-card:hover .project-overlay {
+.portfolio__card:hover .portfolio__overlay {
   opacity: 1;
 }
 
-.project-overlay h3 {
+.portfolio__overlay-content {
+  text-align: center;
   color: white;
-  margin-bottom: 10px;
-  font-size: 1rem;
+  padding: 2rem;
 }
 
-.view-project-btn {
-  background-color: var(--btn-project, #6366f1);
+.portfolio__overlay-title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio__overlay-category {
+  font-size: var(--small-font-size);
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.portfolio__overlay-tech {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.portfolio__tech-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  backdrop-filter: blur(10px);
+}
+
+.portfolio__overlay-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.portfolio__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: var(--small-font-size);
+}
+
+.portfolio__btn.primary {
+  background: var(--title-color);
+  color: var(--body-color);
+}
+
+.portfolio__btn.secondary {
+  background: rgba(255, 255, 255, 0.2);
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.8rem;
-  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
 }
 
-.view-project-btn:hover {
-  background-color: var(--btn-project, #4f46e5);
-  transform: scale(1.05);
+.portfolio__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-.project-info {
-  padding: 10px;
+.portfolio__content {
+  padding: 1.5rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.portfolio__title {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.portfolio__description {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.9;
   flex: 1;
 }
 
-.project-title {
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.project-link {
-  display: inline-flex;
+.portfolio__meta {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  color: var(--notification-header-color, #6366f1);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  ;
-  margin-top: auto;
-  transition: color 0.2s ease;
+  padding-top: 1rem;
+  border-top: var(--border);
 }
 
-.project-link i {
-  margin-left: 5px;
-  transition: transform 0.2s ease;
+.portfolio__category {
+  background: var(--tech-slide);
+  color: var(--text-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
 }
 
-.project-link:hover {
-  color: var(--notification-header-color-hover, #4f46e5);
+.portfolio__duration {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
-.project-link:hover i {
-  transform: translateX(3px);
-}
-
-/* Swiper Navigation & Pagination Styling */
+/* Swiper Customization */
 .swiper-button-next,
 .swiper-button-prev {
-  color: var(--notification-header-color, #6366f1);
-  background-color: rgba(255, 255, 255, 0.1);
-  width: 25px !important;
-  height: 25px !important;
+  color: var(--title-color);
+  background: var(--container-color);
+  width: 50px !important;
+  height: 50px !important;
   border-radius: 50%;
-  backdrop-filter: blur(5px);
+  border: var(--border);
   transition: all 0.3s ease;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: var(--title-color);
+  color: var(--body-color);
+  transform: scale(1.1);
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
-  font-size: 10px !important;
+  font-size: 18px !important;
 }
 
 .swiper-pagination-bullet {
-  background-color: rgba(255, 255, 255, 0.5);
-  opacity: 0.7;
+  background: var(--text-color);
+  opacity: 0.5;
   transition: all 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: var(--notification-header-color, #6366f1);
+  background: var(--title-color);
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
-/* Coverflow Effect Enhancement */
-.swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
-}
-
-.portfolio__content {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  border-bottom: 1px solid var(--text-color);
-  border-top: 1px solid var(--text-color);
-  border-radius: 10px;
-}
-
-.portfolio__content::before,
-.portfolio__content::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 10%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.portfolio__content::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-}
-
-.portfolio__content::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-}
-
-/* Responsive Adjustments */
+/* Responsive Design */
 @media screen and (max-width: 992px) {
   .portfolio-swiper {
-    padding: 30px 0;
+    padding: 40px 0;
   }
-
-  .swiper-slide-custom {
-    width: 200px;
-    opacity: 0.8;
-    transform: scale(0.9);
-
+  
+  .portfolio__overlay-actions {
+    flex-direction: column;
+    gap: 0.75rem;
   }
-
-  .portfolio__content::before,
-  .portfolio__content::after {
-    width: 5%;
+  
+  .portfolio__card {
+    cursor: pointer;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 3rem 0 2rem;
+  }
+  
   .portfolio-swiper {
-    padding: 20px 0;
+    padding: 30px 0;
   }
-
-  .swiper-slide-custom {
-    width: 220px;
+  
+  .portfolio__image-container {
+    height: 200px;
+  }
+  
+  .portfolio__overlay {
+    opacity: 0.8;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  }
+  
+  .portfolio__card:hover .portfolio__overlay {
     opacity: 1;
-    transform: none;
   }
-
-  .swiper-slide-active {
-    transform: none;
+  
+  .portfolio__overlay-content {
+    padding: 1rem;
   }
-
-  .portfolio__content::before,
-  .portfolio__content::after {
-    display: none;
+  
+  .portfolio__overlay-title {
+    font-size: var(--normal-font-size);
   }
-
-  .project-card {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    width: 100%;
+  
+  .portfolio__overlay-tech {
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .portfolio__tech-tag {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .portfolio__btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .portfolio__content {
+    padding: 1.25rem;
+  }
+  
+  .portfolio__title {
+    font-size: var(--normal-font-size);
+  }
+  
+  .portfolio__description {
+    font-size: var(--small-font-size);
+    line-height: 1.5;
   }
 }
 
 @media screen and (max-width: 576px) {
   .portfolio__container {
-    padding: 2rem 0;
+    padding: 0 0.5rem;
   }
-
-  .swiper-slide-custom {
-    width: 75%;
-    margin: 0 auto;
+  
+  .portfolio__image-container {
+    height: 180px;
   }
-
-  .project-title {
-    font-size: 0.85rem;
+  
+  .portfolio__overlay {
+    opacity: 1;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
   }
-
-  .project-image-container {
-    max-height: 150px;
+  
+  .portfolio__overlay-content {
+    padding: 0.75rem;
   }
-
+  
+  .portfolio__overlay-title {
+    font-size: var(--small-font-size);
+    margin-bottom: 0.25rem;
+  }
+  
+  .portfolio__overlay-category {
+    font-size: 0.7rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .portfolio__overlay-tech {
+    margin-bottom: 0.75rem;
+  }
+  
+  .portfolio__tech-tag {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.65rem;
+  }
+  
+  .portfolio__overlay-actions {
+    gap: 0.5rem;
+  }
+  
+  .portfolio__btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  .portfolio__content {
+    padding: 1rem;
+  }
+  
+  .portfolio__title {
+    font-size: var(--small-font-size);
+    margin-bottom: 0.5rem;
+  }
+  
+  .portfolio__description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+  
+  .portfolio__meta {
+    padding-top: 0.75rem;
+  }
+  
+  .portfolio__category,
+  .portfolio__duration {
+    font-size: 0.7rem;
+  }
+  
   .swiper-button-next,
   .swiper-button-prev {
-    width: 18px !important;
-    height: 18px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
-
+  
   .swiper-button-next:after,
   .swiper-button-prev:after {
-    font-size: 8px !important;
+    font-size: 12px !important;
   }
+  
+  .swiper-pagination {
+    bottom: 10px !important;
+  }
+}
 
-  .project-overlay {
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.2);
+@media screen and (max-width: 480px) {
+  .portfolio {
+    padding: 2rem 0;
+  }
+  
+  .section__title {
+    font-size: var(--h2-font-size);
+  }
+  
+  .section__subtitle {
+    font-size: var(--small-font-size);
+  }
+  
+  .portfolio__image-container {
+    height: 160px;
+  }
+  
+  .portfolio__overlay-content {
+    padding: 0.5rem;
+  }
+  
+  .portfolio__overlay-title {
+    font-size: 0.9rem;
+  }
+  
+  .portfolio__overlay-category {
+    font-size: 0.65rem;
+  }
+  
+  .portfolio__tech-tag {
+    padding: 0.1rem 0.3rem;
+    font-size: 0.6rem;
+  }
+  
+  .portfolio__btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.65rem;
+  }
+  
+  .portfolio__content {
+    padding: 0.75rem;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 10px !important;
   }
 }

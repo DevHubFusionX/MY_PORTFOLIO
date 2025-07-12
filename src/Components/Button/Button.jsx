@@ -1,95 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import './Button.css';
 
 const Button = () => {
   return (
-    <StyledWrapper>
-      <button className='button__btn'>
-        <div className="shine"></div>
-        <a href="#contact" className="button button--flex box">
-          hire me now <i className='bx bxs-send'></i>
-           
-        </a>
-      </button>
-    </StyledWrapper>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true }}
+      className="button-wrapper"
+    >
+      <motion.a
+        href="#contact"
+        className="cta-button"
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        <span className="cta-button__text">Lets Collaborate</span>
+        <motion.div 
+          className="cta-button__icon"
+          whileHover={{ x: 5 }}
+          transition={{ duration: 0.2 }}
+        >
+          <i className="bx bx-right-arrow-alt"></i>
+        </motion.div>
+        <div className="cta-button__shine"></div>
+      </motion.a>
+      
+      <div className="cta-subtitle">
+        Ready to bring your vision to life
+      </div>
+    </motion.div>
   );
-}
-
-const StyledWrapper = styled.div`
-.button__btn{
-  position:relative;
-    margin:0;
-    border-radius:5px;
-    overflow:hidden;
-}
-  .box {
-    // width: 140px;
-    height: auto;
-    float: left;
-    transition: .5s linear;
-    position: relative;
-    display: block;
-    overflow: hidden;
-    // padding: 15px;
-    text-align: center;
-    margin: 0 5px;
-    // background: transparent;
-    text-transform: uppercase;
-    font-weight: 900;
-  }
-
-  .box:before {
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    width: 100%;
-    border-bottom: 4px solid transparent;
-    border-left: 4px solid transparent;
-    box-sizing: border-box;
-    transform: translateX(100%);
-
-  }
-
-  .box:after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    border-top: 4px solid transparent;
-    border-right: 4px solid transparent;
-    box-sizing: border-box;
-    transform: translateX(-100%);
-  }
-
-  .box:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  }
-
-  .box:hover:before {
-    border-color:white;
-    // height: 100%;
-    transform: translateX(0);
-    transition: .3s transform linear, .3s height linear .3s;
-  }
-
-  .box:hover:after {
-    border-color: white;
-    // height: 100%;
-    transform: translateX(0);
-    transition: .3s transform linear, .3s height linear .5s;
-  }
-
-  button {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    background: transparent;
-  }`;
+};
 
 export default Button;

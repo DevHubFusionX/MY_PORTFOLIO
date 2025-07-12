@@ -1,170 +1,132 @@
-import React, { useMemo } from "react";
+import React from "react";
 import "./Portfolio.css";
 import { motion } from "framer-motion";
-// Import Swiper components and styles
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-
-// Example project images (replace with your actual image imports)
-import project1Image from "../../assets/Admin-Dashboard.png";
-import project2Image from "../../assets/Portfolio-pic.png";
-import project3Image from "../../assets/web-hosting.png";
-import project4Image from "../../assets/financer-pic.png";
-import devFinder from "../../assets/devFinder.png"
-import movieSite from "../../assets/movie-site.png"
-// import { stack } from "three/tsl";
+import { projectsData } from "./Data";
 
 const Portfolio = () => {
-  const projects = useMemo(
-    () => [
-      {
-        id: 1,
-        className: "contai",
-        delay: 0.2,
-        image: project1Image,
-        link: "https://admin-dashboard-sigma-sable-16.vercel.app/",
-        title: "ADMIN-DASHBOARD",
-        width: 800,
-        height: 450
-      },
-      {
-        id: 2,
-        className: "contai",
-        delay: 0.3,
-        image: project2Image,
-        link: "https://website2-eosin.vercel.app/",
-        title: "PORTFOLIO",
-        width: 800,
-        height: 450
-      },
-      {
-        id: 3,
-        className: "contai",
-        delay: 0.4,
-        image: project3Image,
-        link: "https://vite-project-mu-two.vercel.app/",
-        title: "ECO HOSTING",
-        width: 800,
-        height: 450
-      },
-      {
-        id: 4,
-        className: "contai",
-        delay: 0.5,
-        image: project4Image,
-        link: "https://company-lime-gamma.vercel.app/",
-        title: "FINANCER",
-        width: 800,
-        height: 450
-      },
-      {
-        id: 5,
-        className: "contai dev",
-        delay: 0.5,
-        image: devFinder,
-        link: "https://dev-finder-five-murex.vercel.app/",
-        title: "DEV-FINDER",
-        width: 800,
-        height: 450
-      },
-      {
-        id: 6,
-        className: "contai dev",
-        delay: 0.5,
-        image: movieSite,
-        link: "https://fullstack-movie-app-master.vercel.app/",
-        title: "TVFLIX",
-        width: 800,
-        height: 450
-      },
-    ],
-    []
-  );
+  const navigate = useNavigate();
+
+  const handleProjectClick = (projectId) => {
+    navigate(`/blog/${projectId}`);
+  };
 
   return (
-    <div>
-      <section className="portfolio__container" id="portfolio">
-        <h1 className="section__title">Top Projects</h1>
-        <small>still under development</small>
-        <div className="portfolio__content">
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
-            effect="coverflow"
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={3}
-            spaceBetween={20}
-            loop={true}
-            coverflowEffect={{
-              rotate: 30,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            navigation={true}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            className="portfolio-swiper"
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 10
-              },
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 15
-              },
-              992: {
-                slidesPerView: 3,
-                spaceBetween: 20
-              }
-            }}
-          >
-            {projects.map((project) => (
-              <SwiperSlide key={project.id} className="swiper-slide-custom">
-                <div className="project-card">
-                  <div className="project-image-container">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="project-image"
-                      width={project.width}
-                      height={project.height}
-                      loading="lazy"
-                    />
-                    <div className="project-overlay">
-                      <h3>{project.title}</h3>
-                      <button 
-                        className="view-project-btn"
-                        onClick={() => window.open(project.link, "_blank")}
-                      >
-                        View Project
-                      </button>
+    <section className="portfolio section" id="Portfolio">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="section__title">Featured Projects</h2>
+        <span className="section__subtitle">Showcasing innovation through code</span>
+      </motion.div>
+
+      <div className="portfolio__container container">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={3}
+          spaceBetween={30}
+          loop={true}
+          coverflowEffect={{
+            rotate: 20,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          navigation={true}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          className="portfolio-swiper"
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 25
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          }}
+        >
+          {projectsData.map((project, index) => (
+            <SwiperSlide key={project.id}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="portfolio__card"
+                onClick={() => handleProjectClick(project.id)}
+              >
+                <div className="portfolio__image-container">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="portfolio__image"
+                    loading="lazy"
+                  />
+                  <div className="portfolio__overlay">
+                    <div className="portfolio__overlay-content">
+                      <h3 className="portfolio__overlay-title">{project.title}</h3>
+                      <p className="portfolio__overlay-category">{project.category}</p>
+                      <div className="portfolio__overlay-tech">
+                        {project.technologies.slice(0, 3).map(tech => (
+                          <span key={tech} className="portfolio__tech-tag">{tech}</span>
+                        ))}
+                      </div>
+                      <div className="portfolio__overlay-actions">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="portfolio__btn primary"
+                        >
+                          <i className="bx bx-link-external"></i>
+                          Live Demo
+                        </a>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="portfolio__btn secondary"
+                        >
+                          <i className="bx bxl-github"></i>
+                          Code
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="project-info">
-                    <h3 className="project-title">{project.title}</h3>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link"
-                    >
-                      Visit Site <i className="bx bx-right-arrow-alt"></i>
-                    </a>
+                </div>
+                <div className="portfolio__content">
+                  <h3 className="portfolio__title">{project.title}</h3>
+                  <p className="portfolio__description">{project.description}</p>
+                  <div className="portfolio__meta">
+                    <span className="portfolio__category">{project.category}</span>
+                    <span className="portfolio__duration">{project.duration}</span>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-    </div>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 

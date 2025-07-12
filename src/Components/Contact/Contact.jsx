@@ -129,28 +129,19 @@ const Contact = () => {
 
   return (
     <section className="contact section" id="contact">
-      <h2 className="section__title">Get In Touch</h2>
-      <span className="section__subtitle">Contact me</span>
+      <h2 className="section__title">Lets Connect</h2>
+      <span className="section__subtitle">Ready to bring your vision to life</span>
 
       <div className="contact__container container grid">
         <div className="contact__content">
-          <h3 className="contact__title">Talk to me</h3>
+          <h3 className="contact__title">Get In Touch</h3>
           <motion.div
             initial={{ opacity: 0, y: -100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: 'spring', stiffness: 120, damping: 20, duration: 1, delay: 0.1 }}
             viewport={{ once: true }}
             className="contact__info">
-            <div className="contact__card">
-              <i className="bx bx contact__card-icon"></i>
-              <h3 className="contact__card-title"></h3>
-              <span className="contact__card-data"></span>
-
-              <a href="" className="contact__button">
-                write me{" "}
-                <i className="bx bx-right-arrow-alt contact__button-icon"></i>
-              </a>
-            </div>
+           
             <motion.div
               initial={{ opacity: 0, y: -100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -196,14 +187,7 @@ const Contact = () => {
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
               </a>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: -100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ type: 'spring', stiffness: 120, damping: 20, duration: 1, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="contact__card">
-             <Social className=""></Social>
-            </motion.div>
+          
         
           </motion.div>
         </div>
@@ -215,54 +199,88 @@ const Contact = () => {
           viewport={{ once: true }}
           className="contact__content">
 
-          <h3 className="contact__title">write to me your project</h3>
+          <h3 className="contact__title">Tell Me About Your Project</h3>
           <form onSubmit={handleSubmit} id="contactForm" className="contact__form">
-            <div className="contact__form-div">
-              <label className="contact__form-tag">Name</label>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="contact__form-div">
+              <label className="contact__form-tag">Full Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 className="contact__form-input"
-                placeholder="Insert Your Name"
+                placeholder="What should I call you?"
                 required
               />
-            </div>
+            </motion.div>
 
-            <div className="contact__form-div">
-              <label className="contact__form-tag">email</label>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="contact__form-div">
+              <label className="contact__form-tag">Email Address</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 className="contact__form-input"
-                placeholder="Insert Your Email"
+                placeholder="your.email@example.com"
                 required
               />
-            </div>
-            <div className="contact__form-div contact__form-area">
-              <label className="contact__form-tag">project</label>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="contact__form-div contact__form-area">
+              <label className="contact__form-tag">Project Details</label>
               <textarea
                 name="project"
                 value={formData.project}
                 onChange={handleChange}
                 cols="30"
-                rows="10"
+                rows="8"
                 className="contact__form-input"
-                placeholder="Input Your Project"
+                placeholder="Tell me about your project goals, timeline, and any specific requirements..."
                 required
               ></textarea>
-            </div>
-            <button
+            </motion.div>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
               type="submit"
-              className="button button--flex card"
+              className="button button--flex contact__submit-btn"
               disabled={loading}
             >
-              {loading ? 'Sending...' : 'send message'}
-              <i className="bx bxs-send"></i>
-            </button>
+              {loading ? (
+                <>
+                  <motion.i 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    className="bx bx-loader-alt"
+                  ></motion.i>
+                  Sending Message...
+                </>
+              ) : (
+                <>
+                  <i className="bx bx-paper-plane"></i>
+                  Start Our Collaboration
+                </>
+              )}
+            </motion.button>
           </form>
         </motion.div>
       </div>

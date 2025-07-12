@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import "./Qualification.css";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { qualificationData } from "../../data/qualificationData";
 
 const Qualification = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -10,47 +11,47 @@ const Qualification = () => {
     setToggleState(index);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
     <motion.section
-      initial={{opacity: 0,  y:100}} 
-      whileInView={{opacity:1, y:0}}
-      transition={{type:'spring',stiffness:"120",damping:"20" ,duration:1,delay:0.2}}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
       className="qualification section"
     >
-      <motion.h2
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: "120",
-          damping: "20",
-          duration: 1,
-          delay: 0.2,
-        }}
-        viewport={{ once: true }}
-        className="section__title"
-      >
+      <motion.h2 variants={itemVariants} className="section__title">
         Qualification
       </motion.h2>
-      <motion.span
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: "120",
-          damping: "20",
-          duration: 1,
-          delay: 0.4,
-        }}
-        viewport={{ once: true }}
-        className="section__subtitle"
-      >
+      <motion.span variants={itemVariants} className="section__subtitle">
         My personal journey
       </motion.span>
 
-      <div className="qualification__container container">
+      <motion.div variants={itemVariants} className="qualification__container container">
         <div className="qualification__tabs">
-          <div
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={
               toggleState === 1
                 ? "qualification__button qualification__active button--flex"
@@ -60,9 +61,11 @@ const Qualification = () => {
           >
             <i className="uil uil-graduation-cap qualification__icon"></i>
             Education
-          </div>
+          </motion.div>
 
-          <div
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={
               toggleState === 2
                 ? "qualification__button qualification__active button--flex"
@@ -72,167 +75,118 @@ const Qualification = () => {
           >
             <i className="uil uil-briefcase-alt qualification__icon"></i>
             Experience
-          </div>
+          </motion.div>
         </div>
 
         <div className="qualification__sections">
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: "120",
-              damping: "20",
-              duration: 1,
-              delay: 0.6,
-            }}
-            // viewport={{once:true}}
-            className={
-              toggleState === 1
-                ? "qualification__content qualification__content-active"
-                : "qualification__content"
-            }
-          >
-            <div className="qualification__data">
-              <div>
-                <h3 className="qualification__title">Web Designer</h3>
-                <span className="qualification__subtitle">
-                  {" "}
-                  Nigeria - institute
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender"></i>2024 - present
-                </div>
-              </div>
-
-              <div className="line__rounder">
-                <span className="qualification__rounder"></span>
-                <span className="qualification__line"></span>
-              </div>
-            </div>
-
-            <div className="qualification__data">
-              <div></div>
-              <div >
-                <span className="qualification__rounder"></span>
-                <span className="qualification__line"></span>
-              </div>
-              <div>
-                <h3 className="qualification__title">Art Directory</h3>
-                <span className="qualification__subtitle">
-                  {" "}
-                  Nigeria - institute
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender"></i>2023 -2024
-                </div>
-              </div>
-            </div>
-
-            <div className="qualification__data">
-              <div>
-                <h3 className="qualification__title">Web Development</h3>
-                <span className="qualification__subtitle">
-                  {" "}
-                  Nigeria - institute
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender"></i>2024 - present
-                </div>
-              </div>
-
-              <div>
-                <span className="qualification__rounder"></span>
-                <span className="qualification__line"></span>
-              </div>
-            </div>
-
-            <div className="qualification__data">
-              <div></div>
-              <div>
-                <span className="qualification__rounder"></span>
-                <span className="qualification__line"></span>
-              </div>
-              <div>
-                <h3 className="qualification__title">UX Expert</h3>
-                <span className="qualification__subtitle">
-                  {" "}
-                  Nigeria - institute
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender"></i>2024 - present
-                </div>
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: "120",
-              damping: "20",
-              duration: 1,
-              delay: 0.6,
-            }}
-            // viewport={{once:true}}
-            className={
-              toggleState === 2
-                ? "qualification__content qualification__content-active"
-                : "qualification__content"
-            }
-          >
-            <div className="qualification__data">
-              <div>
-                <h3 className="qualification__title">product Designer</h3>
-                <span className="qualification__subtitle">
-                  microsoft.com - Nigeria
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender"></i>2024 - present
-                </div>
-              </div>
-
-              <div>
-                <span className="qualification__rounder"></span>
-                <span className="qualification__line"></span>
-              </div>
-            </div>
-
-            <div className="qualification__data">
-              <div></div>
-              <div>
-                <span className="qualification__rounder"></span>
-                <span className="qualification__line"></span>
-              </div>
-              <div>
-                <h3 className="qualification__title">UX Designer</h3>
-                <span className="qualification__subtitle">
-                  Apple inc - Nigeria
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender"></i>2023 -2024
-                </div>
-              </div>
-            </div>
-
-            <div className="qualification__data">
-              <div>
-                <h3 className="qualification__title">web Designer</h3>
-                <span className="qualification__subtitle">Figma - Nigeria</span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender"></i>2024 - present
-                </div>
-              </div>
-
-              <div>
-                <span className="qualification__rounder"></span>
-                <span className="qualification__line"></span>
-              </div>
-            </div>
-          </motion.div>
+          <AnimatePresence mode="wait">
+            {toggleState === 1 && (
+              <motion.div
+                key="education"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                transition={{ duration: 0.4 }}
+                className="qualification__content qualification__content-active"
+              >
+                {qualificationData.education.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.1 }}
+                    className="qualification__data"
+                  >
+                    {item.position === "left" ? (
+                      <>
+                        <div>
+                          <h3 className="qualification__title">{item.title}</h3>
+                          <span className="qualification__subtitle">{item.subtitle}</span>
+                          <div className="qualification__calender">
+                            <i className="uil uil-calendar-alt"></i>{item.period}
+                          </div>
+                        </div>
+                        <div>
+                          <span className="qualification__rounder"></span>
+                          {index < qualificationData.education.length - 1 && <span className="qualification__line"></span>}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div></div>
+                        <div>
+                          <span className="qualification__rounder"></span>
+                          {index < qualificationData.education.length - 1 && <span className="qualification__line"></span>}
+                        </div>
+                        <div>
+                          <h3 className="qualification__title">{item.title}</h3>
+                          <span className="qualification__subtitle">{item.subtitle}</span>
+                          <div className="qualification__calender">
+                            <i className="uil uil-calendar-alt"></i>{item.period}
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence mode="wait">
+            {toggleState === 2 && (
+              <motion.div
+                key="experience"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                transition={{ duration: 0.4 }}
+                className="qualification__content qualification__content-active"
+              >
+                {qualificationData.experience.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.1 }}
+                    className="qualification__data"
+                  >
+                    {item.position === "left" ? (
+                      <>
+                        <div>
+                          <h3 className="qualification__title">{item.title}</h3>
+                          <span className="qualification__subtitle">{item.subtitle}</span>
+                          <div className="qualification__calender">
+                            <i className="uil uil-calendar-alt"></i>{item.period}
+                          </div>
+                        </div>
+                        <div>
+                          <span className="qualification__rounder"></span>
+                          {index < qualificationData.experience.length - 1 && <span className="qualification__line"></span>}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div></div>
+                        <div>
+                          <span className="qualification__rounder"></span>
+                          {index < qualificationData.experience.length - 1 && <span className="qualification__line"></span>}
+                        </div>
+                        <div>
+                          <h3 className="qualification__title">{item.title}</h3>
+                          <span className="qualification__subtitle">{item.subtitle}</span>
+                          <div className="qualification__calender">
+                            <i className="uil uil-calendar-alt"></i>{item.period}
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
     </motion.section>
   );
 };

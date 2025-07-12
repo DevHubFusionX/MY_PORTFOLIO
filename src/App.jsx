@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import "./App.css";
 import Hero from "./Components/Hero/Hero";
@@ -13,10 +14,12 @@ import ScrollProgress from './Components/Common/ScrollProgress';
 import BackToTop from './Components/Common/BackToTop';
 import SectionNav from './Components/Common/SectionNav';
 import ErrorBoundary from './Components/Common/ErrorBoundary';
+import Footer from './Components/Footer/Footer'
 import { isMobileDevice } from './utils/sanitize';
 import TechStack from "./Components/TechStack/TechStack";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Portfolio from "./Components/Portfolio/Portfolio";
+import Blog from "./Components/Blog/Blog";
 import WebsiteReview from "./Components/Notification/WebsiteReview";
 import emailjs from '@emailjs/browser';
 
@@ -100,35 +103,44 @@ function App() {
     localStorage.setItem("websiteReviews", "skipped");
   }, []);
 
+  const HomePage = () => (
+    <main>
+      <Hero />
+      <About />
+      <Portfolio />
+      <Skills />
+      <Service />
+      <TechStack/>
+      <Qualification />
+      <Testimonial />
+      <Contact />
+      <Footer />
+    </main>
+  );
+
   return (
-    <>
+    <Router>
       <ErrorBoundary>
         <CustomCursor />
         {!isMobile && <LoadingScreen />}
         <Header />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Service />
-          <TechStack/>
-          <Portfolio />
-          <Qualification />
-          <Testimonial />
-          <Contact />
-          <WebsiteReview 
-            isOpen={isNotified}
-            onClose={handleCloseNotification}
-            onSubmit={handleReviewSubmit}
-            review={review}
-            setReview={setReview}
-          />
-        </main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:projectId" element={<Blog />} />
+        </Routes>
+        <WebsiteReview 
+          isOpen={isNotified}
+          onClose={handleCloseNotification}
+          onSubmit={handleReviewSubmit}
+          review={review}
+          setReview={setReview}
+        />
         <ScrollProgress />
         <BackToTop />
         <SectionNav />
       </ErrorBoundary>
-    </>
+    </Router>
   );
 }
 

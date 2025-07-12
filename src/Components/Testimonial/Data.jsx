@@ -16,6 +16,12 @@ export const Data = [
         description: "I was impressed by the team's technical expertise and problem-solving skills. They transformed our complex requirements into a seamless, user-friendly application that our customers love.",
     },
     {
+        id: 4,
+        image: image2,
+        title: "peter comfort",
+        description: "I was impressed by the team's technical expertise and problem-solving skills. They transformed our complex requirements into a seamless, user-friendly application that our customers love.",
+    },
+    {
         id: 3,
         image: image3,
         title: "Storelelulu",

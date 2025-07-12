@@ -1,63 +1,67 @@
 /** @format */
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from 'framer-motion';
+
+const skillsData = [
+  { name: "HTML5", level: "Advanced", proficiency: 95, icon: "bxl-html5" },
+  { name: "CSS3", level: "Advanced", proficiency: 90, icon: "bxl-css3" },
+  { name: "JavaScript", level: "Advanced", proficiency: 85, icon: "bxl-javascript" },
+  { name: "React", level: "Advanced", proficiency: 88, icon: "bxl-react" },
+  { name: "TypeScript", level: "Intermediate", proficiency: 75, icon: "bxl-typescript" },
+  { name: "Tailwind CSS", level: "Advanced", proficiency: 80, icon: "bxl-tailwind-css" }
+];
 
 const Frontend = () => {
   return (
     <motion.div
-      initial={{ y: -50, opacity: 0 }}
+      initial={{ y: 30, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      transition={{
-        duration: 0.5,
-        delay: 0.2,
-        type: "spring",
-        stiffness: "300",
-        damping: "20",
-      }}
+      transition={{ duration: 0.5, delay: 0.1 }}
       viewport={{ once: true }}
       className="skills__content"
     >
-      {/* <div className="shine"></div> */}
-
-      <h3 className="skills__title"> Frontend developer</h3>
+      <div className="skills__header">
+        <div className="skills__icon-wrapper">
+          <i className="bx bx-code-alt skills__main-icon"></i>
+        </div>
+        <div className="skills__title-group">
+          <h3 className="skills__title">Frontend Development</h3>
+          <p className="skills__subtitle">User interface design & interactive experiences</p>
+        </div>
+      </div>
+      
       <div className="skills__box">
-        <div className="skills__group">
-          <div className="skills__data">
-            <i className="bx bx-badge-check"></i>
-            <div>
-              <h3 className="skills__name">HTML</h3>
-              <span className="skills__level">Basic</span>
-            </div>
-          </div>
-          <div className="skills__data">
-            <i className="bx bx-badge-check"></i>
-            <div>
-              <h3 className="skills__name">CSS</h3>
-              <span className="skills__level">Advanced</span>
-            </div>
-          </div>
-          <div className="skills__data">
-            <i className="bx bx-badge-check"></i>
-            <div>
-              <h3 className="skills__name">Javascript</h3>
-              <span className="skills__level">Intermediate</span>
-            </div>
-          </div>
-          <div className="skills__data">
-            <i className="bx bx-badge-check"></i>
-            <div>
-              <h3 className="skills__name">Git</h3>
-              <span className="skills__level">Intermediate</span>
-            </div>
-          </div>
-          <div className="skills__data">
-            <i className="bx bx-badge-check"></i>
-            <div>
-              <h3 className="skills__name">React</h3>
-              <span className="skills__level">Advanced</span>
-            </div>
-          </div>
+        <div className="skills__group skills__group--compact">
+          {skillsData.map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.3 + (index * 0.05) }}
+              viewport={{ once: true }}
+              className="skills__data skills__data--compact"
+            >
+              <div className="skills__data-icon">
+                <i className={`bx ${skill.icon}`}></i>
+              </div>
+              <div className="skills__data-content">
+                <h4 className="skills__name">{skill.name}</h4>
+                <div className="skills__progress-container">
+                  <div className="skills__progress">
+                    <motion.div 
+                      className="skills__progress-bar"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.proficiency}%` }}
+                      transition={{ duration: 0.8, delay: 0.4 + (index * 0.05) }}
+                      viewport={{ once: true }}
+                    ></motion.div>
+                  </div>
+                  <span className="skills__percentage">{skill.proficiency}%</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.div>

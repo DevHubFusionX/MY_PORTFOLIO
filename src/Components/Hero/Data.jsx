@@ -4,20 +4,32 @@ import Button from '../Button/Button'
 
 /**
  * @function Data
- * @description A React component that renders the hero section data for a portfolio.
- * @returns {JSX.Element} A div containing the title, subtitle, description, and a Button component.
+ * @description Hero section component showcasing professional profile and key metrics
+ * @returns {JSX.Element} Enhanced hero content with stats and refined messaging
  */
 const Data = () => {
   return (
     <div className="home__data">
-        <h1 className="home__title">Franklin</h1>
-        <h3 className='home__subtitle'>Full Stack Developer</h3>
+        <h1 className="home__title">
+          Franklin <span className="home__title-accent">Anyanwu</span>
+        </h1>
+        <h3 className='home__subtitle'>Full Stack Developer & Digital Architect</h3>
         <p className="home__description">
-          👋 Hello! I'm Anyanwu Franklin, a passionate Full Stack Developer crafting elegant digital experiences. 
-          I specialize in building responsive, user-centric web applications using modern technologies. 
-          With a keen eye for detail and a commitment to clean code, I transform complex problems into simple, 
-          beautiful, and intuitive solutions.
+          Transforming ideas into exceptional digital experiences through innovative 
+          full-stack development. I architect scalable web applications with precision, 
+          combining cutting-edge technologies with user-centered design principles to 
+          deliver solutions that drive business growth and user engagement.
         </p>
+        <div className="home__stats">
+          <div className="home__stat">
+            <span className="home__stat-number">15+</span>
+            <span className="home__stat-label">Projects Delivered</span>
+          </div>
+          <div className="home__stat">
+            <span className="home__stat-number">2+</span>
+            <span className="home__stat-label">Years Experience</span>
+          </div>
+        </div>
         <Button/>
     </div>
   )

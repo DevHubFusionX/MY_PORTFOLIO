@@ -1,56 +1,74 @@
 /* eslint-disable react/display-name */
 /* eslint-disable react/prop-types */
 import React, { useState, memo } from 'react'
-import { motion, } from "motion/react"
+import { motion, AnimatePresence } from "motion/react"
 
 import "./Services.css";
 
 const ServiceModal = memo(({ isOpen, onClose, title, description, services }) => (
-  <div className={isOpen ? "services__modal active-modal " : "services__modal"}>
-    <div className="services__modal-content">
-      <i onClick={onClose} className="uil uil-times services__modal-close"></i>
-      <h3 className="services__modal-title">{title}</h3>
-      <p className="services__modal-description">{description}</p>
-      <ul className="services__modal-services grid">
-        {services.map((service, index) => (
-          <li key={index} className="services__modal-service">
-            <i className="ul uil-check-circle services__modal-icon"></i>
-            <p className="services__modal-info">{service}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
+  <AnimatePresence>
+    {isOpen && (
+      <motion.div 
+        className="services__modal"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <motion.div 
+          className="services__modal-content"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <i onClick={onClose} className="uil uil-times services__modal-close"></i>
+          <h3 className="services__modal-title">{title}</h3>
+          <p className="services__modal-description">{description}</p>
+          <ul className="services__modal-services">
+            {services.map((service, index) => (
+              <li 
+                key={index} 
+                className="services__modal-service"
+              >
+                <i className="uil uil-check-circle services__modal-icon"></i>
+                <p className="services__modal-info">{service}</p>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </motion.div>
+    )}
+  </AnimatePresence>
 ));
 
 const ServiceCard = memo(({ icon, title, index, isActive, onToggle, description, services }) => (
   <motion.div
-    initial={{ opacity: 0, y: index - 100 }}
-    inherit={{ opacity: 0 }}
-    animate={{ once: true, opacity: 1, y: 0, }}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
     transition={{
-      duration: 0.5, delay: index * 0.1,
-      type: 'spring',
-      stiffness: '200',
-      damping: '20'
+      duration: 0.4,
+      delay: index * 0.1
     }}
-    className="service__content card">
-    <div className="shine"></div>
-
-    <div>
+    className="service__content"
+  >
+    <div className="service__icon-wrapper">
       <i className={`uil ${icon} services__icon`}></i>
-      <h3 className='services__title'>{title}</h3>
     </div>
-    <span className="services__button" onClick={() => onToggle(index)}>
-      View More <i className="uil uil-arrow-right services__button-icon"></i>
+    
+    <div className="service__text">
+      <h3 className='services__title'>{title}</h3>
+      <p className="services__preview">{description.substring(0, 60)}...</p>
+    </div>
+    
+    <span 
+      className="services__button" 
+      onClick={() => onToggle(index + 1)}
+    >
+      View More 
+      <i className="uil uil-arrow-right services__button-icon"></i>
     </span>
-    <ServiceModal
-      isOpen={isActive}
-      onClose={() => onToggle(0)}
-      title={title}
-      description={description}
-      services={services}
-    />
   </motion.div>
 ));
 
@@ -97,20 +115,23 @@ const Service = () => {
   ];
 
   const toggleTab = (index) => {
-    setActiveTab(index);
+    setActiveTab(activeTab === index ? 0 : index);
   };
 
   return (
     <section className="services section" id="services">
-      <h2 className="section__title">Services</h2>
-      <span className="section__subtitle">What I offer</span>
-      <div className="services__container container grid">
+      <div>
+        <h2 className="section__title">Services</h2>
+        <span className="section__subtitle">What I offer</span>
+      </div>
+      
+      <div className="services__container container">
         {services.map((service, index) => (
           <ServiceCard
             key={index}
             icon={service.icon}
             title={service.title}
-            index={index + 1}
+            index={index}
             isActive={activeTab === index + 1}
             onToggle={toggleTab}
             description={service.description}
@@ -118,6 +139,17 @@ const Service = () => {
           />
         ))}
       </div>
+      
+      {services.map((service, index) => (
+        <ServiceModal
+          key={`modal-${index}`}
+          isOpen={activeTab === index + 1}
+          onClose={() => toggleTab(0)}
+          title={service.title}
+          description={service.description}
+          services={service.services}
+        />
+      ))}
     </section>
   )
 }

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 /**
  * @file Header.jsx
@@ -96,6 +97,12 @@ const Header = () => {
               <a href="#portfolio" className="nav__link">
                 <i className="uil uil-scenery nav__icon"></i>portfolio
               </a>
+            </li>
+
+            <li className="nav__item">
+              <Link to="/blog" className="nav__link">
+                <i className="uil uil-edit nav__icon"></i>blog
+              </Link>
             </li>
 
             <li className="nav__item">

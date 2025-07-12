@@ -1,120 +1,68 @@
 import "./TechStack.css";
 import { motion } from "framer-motion";
-import React, { useState, useEffect } from "react";
-// Import Swiper components and styles
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Grid, FreeMode } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-
-import cssImage from "../../assets/css.png";
-import htmlImage from "../../assets/html5.png";
-import javascriptImage from "../../assets/javascript.png"; 
-import phpImage from "../../assets/php.png";
-import reactImage from "../../assets/react.png";
-// Add more tech stack images here
- import nodeImage from "../../assets/nodedotjs.png";
- import mysql from "../../assets/mysql.png";
- import tailwind from "../../assets/tailwindcss.png";
+import React from "react";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPhp } from "react-icons/fa";
+import { SiMysql, SiTailwindcss } from "react-icons/si";
 
 const TechStack = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  
-  // Check if device is mobile
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   const techItems = [
-    { image: cssImage, name: "CSS" },
-    { image: htmlImage, name: "HTML" },
-    { image: javascriptImage, name: "JavaScript" },
-    { image: phpImage, name: "PHP" },
-    { image: reactImage, name: "React" },
-    { image: nodeImage, name: "Node.js" },
-    { image: mysql, name: "MySql" },
-    { image: tailwind, name: "TailWind" },
-   
+    { icon: <FaHtml5 size={40} />, name: "HTML", color: "#e34c26" },
+    { icon: <FaCss3Alt size={40} />, name: "CSS", color: "#2965f1" },
+    { icon: <FaJs size={40} />, name: "JavaScript", color: "#f7df1e" },
+    { icon: <FaReact size={40} />, name: "React", color: "#61dafb" },
+    { icon: <FaNodeJs size={40} />, name: "Node.js", color: "#3c873a" },
+    { icon: <FaPhp size={40} />, name: "PHP", color: "#777bb4" },
+    { icon: <SiMysql size={40} />, name: "MySQL", color: "#00758f" },
+    { icon: <SiTailwindcss size={40} />, name: "Tailwind", color: "#38bdf8" },
   ];
 
   return (
-    <motion.div 
-      className="tech__section"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
+    <motion.section
+      className="tech__section section"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
     >
-      <motion.h2 
-        className="section__title"
-        initial={{ y: -20 }}
-        whileInView={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
       >
-        Tech Stack
-      </motion.h2>
-      <div className="tech-carousel-container">
-        <Swiper
-          grabCursor={true}
-          modules={[Grid, FreeMode, Autoplay, Navigation]}
-          grid={{
-            rows: isMobile ? 1 : 2,
-            fill: 'row'
-          }}
-          freeMode={{
-            enabled: true,
-            sticky: false,
-          }}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          navigation={true}
-          slidesPerView={isMobile ? 1 : 3}
-          spaceBetween={20}
-          breakpoints={{
-            640: { slidesPerView: 2, grid: { rows: 2 } },
-            768: { slidesPerView: 3, grid: { rows: 2 } },
-            1024: { slidesPerView: 4, grid: { rows: 2 } }
-          }}
-          className="tech-swiper"
-        >
+        <h2 className="section__title">Tech Stack</h2>
+        <span className="section__subtitle">Technologies I work with</span>
+      </motion.div>
+
+      <div className="tech__container container">
+        <div className="tech__grid">
           {techItems.map((tech, index) => (
-            <SwiperSlide key={index} className="tech-slide">
-              <motion.div 
-                className="tech-card"
-                whileHover={{ y: -5 }}
-                transition={{ type: "tween", stiffness: 300 }}
-              >
-                <img 
-                  src={tech.image} 
-                  alt={tech.name} 
-                  draggable="false" 
-                  loading="lazy"
-                />
-                <motion.div 
-                  className="tech-name"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {tech.name}
-                </motion.div>
-              </motion.div>
-            </SwiperSlide>
+            <motion.div
+              key={tech.name}
+              className="tech__card"
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.4 + (index * 0.1),
+                ease: "easeOut"
+              }}
+              whileHover={{
+                y: -8,
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+              viewport={{ once: true }}
+            >
+              <div className="tech__icon" style={{ color: tech.color }}>
+                {tech.icon}
+              </div>
+              <h3 className="tech__name">{tech.name}</h3>
+            </motion.div>
           ))}
-        </Swiper>
+        </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 
