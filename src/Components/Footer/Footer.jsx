@@ -1,16 +1,17 @@
 import React from 'react'
 import './Footer.css'
 import { motion } from 'motion/react'
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: 'bx bxl-facebook', href: '#', label: 'Facebook' },
-    { icon: 'bx bxl-instagram', href: '#', label: 'Instagram' },
-    { icon: 'bx bxl-twitter', href: '#', label: 'Twitter' },
-    { icon: 'bx bxl-linkedin', href: '#', label: 'LinkedIn' },
-    { icon: 'bx bxl-github', href: '#', label: 'GitHub' }
+    { icon: <FaFacebookF />, href: '#', label: 'Facebook' },
+    { icon: <FaInstagram />, href: '#', label: 'Instagram' },
+    { icon: <FaTwitter />, href: '#', label: 'Twitter' },
+    { icon: <FaLinkedinIn />, href: '#', label: 'LinkedIn' },
+    { icon: <FaGithub />, href: '#', label: 'GitHub' }
   ]
 
   const quickLinks = [
@@ -72,17 +73,17 @@ const Footer = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.4 + (index * 0.1) }}
-                  whileHover={{ 
-                    scale: 1.2, 
+                  whileHover={{
+                    scale: 1.2,
                     y: -3,
-                    transition: { duration: 0.2 } 
+                    transition: { duration: 0.2 }
                   }}
                   viewport={{ once: true }}
                   href={social.href}
                   className="footer__social-link"
                   aria-label={social.label}
                 >
-                  <i className={social.icon}></i>
+                  {social.icon}
                 </motion.a>
               ))}
             </div>

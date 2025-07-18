@@ -63,7 +63,7 @@ const Header = () => {
       className="header"
     >
       <nav ref={navRef} className="nav container">
-        <a href="index.html" className="nav__logo">
+        <a href="/" className="nav__logo">
           Frank
         </a>
 

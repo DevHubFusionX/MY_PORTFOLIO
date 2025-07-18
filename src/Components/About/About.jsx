@@ -11,7 +11,7 @@ const About = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, margin: "-100px" }}
-      className="about section" 
+      className="about section"
       id="About"
     >
       <motion.div
@@ -21,9 +21,9 @@ const About = () => {
         viewport={{ once: true }}
       >
         <h2 className="section__title">About Me</h2>
-        <span className="section__subtitle">Get to know me better</span>
+        <span className="section__subtitle">The story behind my journey</span>
       </motion.div>
-      
+
       <div className="about__container container">
         <motion.div
           initial={{ opacity: 0, y: -50, scale: 0.9 }}
@@ -37,7 +37,7 @@ const About = () => {
             <div className="about__image-overlay"></div>
           </div>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,11 +53,13 @@ const About = () => {
             viewport={{ once: true }}
             className="about__description"
           >
-            Frontend developer passionate about creating exceptional web experiences. 
-            I specialize in modern UI/UX design and have successfully delivered 
-            projects that exceed client expectations.
+            I'm a passionate frontend developer who loves bringing creative ideas to life through code. 
+            With a keen eye for design and a dedication to crafting intuitive user experiences, 
+            I transform concepts into beautiful, functional websites that leave a lasting impression. 
+            My approach combines technical expertise with artistic sensibility to create digital 
+            experiences that truly connect with users.
           </motion.p>
-          
+
           <motion.a
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,12 +67,12 @@ const About = () => {
             whileHover={{ y: -3, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
             viewport={{ once: true }}
-            download="" 
-            href="https://1drv.ms/w/s!AomcZBq8dYxnfNoudAnbIQiO5vQ?e=rZLjWI" 
+            download=""
+            href="https://1drv.ms/w/s!AomcZBq8dYxnfNoudAnbIQiO5vQ?e=rZLjWI"
             className="button button--flex about__cta"
           >
             <i className="uil uil-download-alt button__icon"></i>
-            Download CV
+            View My Resume
           </motion.a>
         </motion.div>
       </div>

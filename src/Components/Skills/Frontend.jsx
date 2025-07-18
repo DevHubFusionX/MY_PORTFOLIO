@@ -2,14 +2,16 @@
 
 import React from "react";
 import { motion } from 'framer-motion';
+import { FaHtml5, FaCss3Alt, FaReact, FaJs } from "react-icons/fa";
+import { SiTypescript, SiTailwindcss } from "react-icons/si";
 
 const skillsData = [
-  { name: "HTML5", level: "Advanced", proficiency: 95, icon: "bxl-html5" },
-  { name: "CSS3", level: "Advanced", proficiency: 90, icon: "bxl-css3" },
-  { name: "JavaScript", level: "Advanced", proficiency: 85, icon: "bxl-javascript" },
-  { name: "React", level: "Advanced", proficiency: 88, icon: "bxl-react" },
-  { name: "TypeScript", level: "Intermediate", proficiency: 75, icon: "bxl-typescript" },
-  { name: "Tailwind CSS", level: "Advanced", proficiency: 80, icon: "bxl-tailwind-css" }
+  { name: "HTML5", level: "Advanced", proficiency: 95, icon: <FaHtml5 color="#e34c26" size={28} /> },
+  { name: "CSS3", level: "Advanced", proficiency: 90, icon: <FaCss3Alt color="#2965f1" size={28} /> },
+  { name: "JavaScript", level: "Advanced", proficiency: 85, icon: <FaJs color="#f7df1e" size={28} /> },
+  { name: "React", level: "Advanced", proficiency: 88, icon: <FaReact color="#61dafb" size={28} /> },
+  { name: "TypeScript", level: "Intermediate", proficiency: 75, icon: <SiTypescript color="#3178c6" size={28} /> },
+  { name: "Tailwind CSS", level: "Advanced", proficiency: 80, icon: <SiTailwindcss color="#38bdf8" size={28} /> }
 ];
 
 const Frontend = () => {
@@ -30,7 +32,7 @@ const Frontend = () => {
           <p className="skills__subtitle">User interface design & interactive experiences</p>
         </div>
       </div>
-      
+
       <div className="skills__box">
         <div className="skills__group skills__group--compact">
           {skillsData.map((skill, index) => (
@@ -43,13 +45,13 @@ const Frontend = () => {
               className="skills__data skills__data--compact"
             >
               <div className="skills__data-icon">
-                <i className={`bx ${skill.icon}`}></i>
+                {skill.icon}
               </div>
               <div className="skills__data-content">
                 <h4 className="skills__name">{skill.name}</h4>
                 <div className="skills__progress-container">
                   <div className="skills__progress">
-                    <motion.div 
+                    <motion.div
                       className="skills__progress-bar"
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.proficiency}%` }}

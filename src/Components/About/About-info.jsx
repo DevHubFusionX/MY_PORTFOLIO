@@ -3,9 +3,9 @@ import { motion } from 'motion/react'
 
 const AboutInfo = () => {
   const stats = [
-    { icon: "bx bx-award", title: "Experience", subtitle: "2+ Years" },
-    { icon: "bx bx-briefcase-alt", title: "Projects", subtitle: "15+ Completed" },
-    { icon: "bx bx-support", title: "Support", subtitle: "24/7 Available" }
+    { icon: "bx bx-award", title: "Experience", subtitle: "2+ Years of Crafting" },
+    { icon: "bx bx-briefcase-alt", title: "Portfolio", subtitle: "15+ Successful Projects" },
+    { icon: "bx bx-support", title: "Availability", subtitle: "Always Responsive" }
   ];
 
   return (

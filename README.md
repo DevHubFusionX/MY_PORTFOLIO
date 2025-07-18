@@ -35,12 +35,14 @@ A modern portfolio web application built with React and Vite.
 ## Setup
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/your-username/portfolio.git
    cd portfolio
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
@@ -104,7 +106,7 @@ npm run preview
 1. Update `vite.config.js` to include your base path:
    ```js
    export default defineConfig({
-     base: '/your-repo-name/',
+     base: '/your-repo-name/'
      // other config
    })
    ```
@@ -137,6 +139,5 @@ portfolio/
 
 [MIT](LICENSE)
 
-
 codebase
-go through my code and enable or fix the notifications 
+go through my code and enable or fix the notifications

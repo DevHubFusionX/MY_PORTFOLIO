@@ -2,14 +2,16 @@
 
 import React from "react";
 import { motion } from 'framer-motion';
+import { FaNodeJs, FaPython, FaExchangeAlt } from "react-icons/fa";
+import { SiExpress, SiMongodb, SiPostgresql } from "react-icons/si";
 
 const skillsData = [
-  { name: "Node.js", level: "Advanced", proficiency: 85, icon: "bxl-nodejs" },
-  { name: "Python", level: "Intermediate", proficiency: 70, icon: "bxl-python" },
-  { name: "Express.js", level: "Advanced", proficiency: 80, icon: "bx-server" },
-  { name: "MongoDB", level: "Intermediate", proficiency: 75, icon: "bx-data" },
-  { name: "PostgreSQL", level: "Intermediate", proficiency: 70, icon: "bx-cylinder" },
-  { name: "REST APIs", level: "Advanced", proficiency: 90, icon: "bx-transfer" }
+  { name: "Node.js", level: "Advanced", proficiency: 85, icon: <FaNodeJs color="#3c873a" size={28} /> },
+  { name: "Python", level: "Intermediate", proficiency: 70, icon: <FaPython color="#3776AB" size={28} /> },
+  { name: "Express.js", level: "Advanced", proficiency: 80, icon: <SiExpress color="#000" size={28} /> },
+  { name: "MongoDB", level: "Intermediate", proficiency: 75, icon: <SiMongodb color="#47A248" size={28} /> },
+  { name: "PostgreSQL", level: "Intermediate", proficiency: 70, icon: <SiPostgresql color="#336791" size={28} /> },
+  { name: "REST APIs", level: "Advanced", proficiency: 90, icon: <FaExchangeAlt color="#e34c26" size={28} /> }
 ];
 
 const Backend = () => {
@@ -30,7 +32,7 @@ const Backend = () => {
           <p className="skills__subtitle">Server-side architecture & database management</p>
         </div>
       </div>
-      
+
       <div className="skills__box">
         <div className="skills__group skills__group--compact">
           {skillsData.map((skill, index) => (
@@ -43,13 +45,13 @@ const Backend = () => {
               className="skills__data skills__data--compact"
             >
               <div className="skills__data-icon">
-                <i className={`bx ${skill.icon}`}></i>
+                {skill.icon}
               </div>
               <div className="skills__data-content">
                 <h4 className="skills__name">{skill.name}</h4>
                 <div className="skills__progress-container">
                   <div className="skills__progress">
-                    <motion.div 
+                    <motion.div
                       className="skills__progress-bar"
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.proficiency}%` }}

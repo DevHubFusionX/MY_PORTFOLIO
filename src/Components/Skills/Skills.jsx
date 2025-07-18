@@ -6,15 +6,15 @@ import { motion } from "motion/react"
 
 const Skills = () => {
   return (
-    <motion.section  
+    <motion.section
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.6, 
+      transition={{
+        duration: 0.6,
         ease: "easeOut"
       }}
       viewport={{ once: true, margin: "-100px" }}
-      className='skills section' 
+      className='skills section'
       id='Skills'
     >
       <motion.div
@@ -26,10 +26,10 @@ const Skills = () => {
         <h2 className="section__title">Skills</h2>
         <span className="section__subtitle">My technical expertise</span>
       </motion.div>
-      
+
       <div className="skills__container container grid">
-        <Frontend/>
-        <Backend/>
+        <Frontend />
+        <Backend />
       </div>
     </motion.section>
   )

@@ -11,7 +11,7 @@ const Data = () => {
   return (
     <div className="home__data">
         <h1 className="home__title">
-          Franklin <span className="home__title-accent">Anyanwu</span>
+        <span className="home__title-accent"> Franklin Anyanwu</span>
         </h1>
         <h3 className='home__subtitle'>Full Stack Developer & Digital Architect</h3>
         <p className="home__description">
