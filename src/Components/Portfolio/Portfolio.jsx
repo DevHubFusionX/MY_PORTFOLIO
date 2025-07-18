@@ -67,9 +67,9 @@ const Portfolio = () => {
           {projectsData.map((project, index) => (
             <SwiperSlide key={project.id}>
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, }}
+                whileInView={{ opacity: 1, }}
+                transition={{ duration: 0.6, }}
                 viewport={{ once: true }}
                 className="portfolio__card"
                 onClick={() => handleProjectClick(project.id)}
