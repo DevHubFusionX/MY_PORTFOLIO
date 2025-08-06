@@ -1,25 +1,22 @@
 import React from 'react'
 import './Footer.css'
 import { motion } from 'motion/react'
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaTwitter,  FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: <FaFacebookF />, href: '#', label: 'Facebook' },
-    { icon: <FaInstagram />, href: '#', label: 'Instagram' },
-    { icon: <FaTwitter />, href: '#', label: 'Twitter' },
-    { icon: <FaLinkedinIn />, href: '#', label: 'LinkedIn' },
-    { icon: <FaGithub />, href: '#', label: 'GitHub' }
+    { icon: <FaTwitter />, href: 'https://x.com/DevHubFusionX', label: 'Twitter' },
+    { icon: <FaGithub />, href: 'https://github.com/DevHubFusionX', label: 'GitHub' }
   ]
 
   const quickLinks = [
-    { name: 'About', href: '#About' },
-    { name: 'Skills', href: '#Skills' },
-    { name: 'Services', href: '#Services' },
-    { name: 'Portfolio', href: '#Portfolio' },
-    { name: 'Contact', href: '#Contact' }
+    { name: 'About', href: '/about' },
+    { name: 'Skills', href: '/skills' },
+    { name: 'Services', href: '/services' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Contact', href: '/contact' }
   ]
 
   return (
@@ -41,7 +38,7 @@ const Footer = () => {
           <div className="footer__info">
             <h2 className="footer__title">Anyanwu Franklin</h2>
             <p className="footer__description">
-              Frontend Developer creating amazing web experiences
+              FullStack Developer creating amazing web experiences
             </p>
           </div>
 

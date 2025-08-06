@@ -232,7 +232,6 @@ img {
 
 }
 .button:hover {
-  /* background-color: var(--); */
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -298,7 +297,7 @@ img {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
 }
 .notification-card {
   text-align: center;
@@ -413,7 +412,7 @@ img {
 /* Back to Top */
 .back-to-top {
   position: fixed;
-  bottom: 4rem;
+  top: 1rem;
   left: 2rem;
   background: var(--container-color);
   color: var(--title-color);

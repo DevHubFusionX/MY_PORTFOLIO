@@ -5,6 +5,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
+    justify-content: center;
 }
 
 .service__content{
@@ -228,7 +229,8 @@
 
 @media screen and (max-width: 576px) {
     .services__container {
-        grid-template-columns: 1fr;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1rem;
     }
     

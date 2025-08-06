@@ -1,5 +1,0 @@
-{
-  "watch": ["*.js", "aiRoutes.js"],
-  "ignore": ["node_modules", "*.log", ".env", ".git", ".qodo", "dist"],
-  "ext": "js,json"
-}

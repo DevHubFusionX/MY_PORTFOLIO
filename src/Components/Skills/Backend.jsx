@@ -40,7 +40,7 @@ const Backend = () => {
               key={skill.name}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.4 + (index * 0.05) }}
+              transition={{ duration: 0.2,}}
               viewport={{ once: true }}
               className="skills__data skills__data--compact"
             >
@@ -55,7 +55,7 @@ const Backend = () => {
                       className="skills__progress-bar"
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.proficiency}%` }}
-                      transition={{ duration: 0.8, delay: 0.5 + (index * 0.05) }}
+                      transition={{ duration: 0.8, delay: 0.2 + (index * 0.01) }}
                       viewport={{ once: true }}
                     ></motion.div>
                   </div>

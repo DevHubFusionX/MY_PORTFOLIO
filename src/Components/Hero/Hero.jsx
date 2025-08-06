@@ -4,14 +4,12 @@ import Social from "./Social-fi.jsx";
 import Data from "./Data";
 import ScrollDown from "./ScrollDown.jsx";
 import { motion } from "framer-motion";
-import Switch from "../Button/Switch";
 
 const Hero = () => {
   return (
     <section className="home section" id="home">
-      <Switch />
       
-      <div className="home__container container">
+      <div className="home__container ">
         <div className="home__content">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}

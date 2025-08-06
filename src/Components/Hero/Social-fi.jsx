@@ -116,7 +116,7 @@ const StyledWrapper = styled.div`
       opacity: 1;
     }
   }
-    @media screen and (max-width:576px) {
+    @media screen and (max-width:1000px) {
     .card{
       display: none;
       background: red;

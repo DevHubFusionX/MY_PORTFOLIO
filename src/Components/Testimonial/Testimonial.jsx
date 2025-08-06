@@ -35,7 +35,7 @@ const Testimonial = () => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      className="testimonial container section"
+      className="testimonial  section"
     >
       <motion.h2 variants={itemVariants} className="section__title">What Clients Say</motion.h2>
       <motion.span variants={itemVariants} className="section__subtitle">Testimonials</motion.span>

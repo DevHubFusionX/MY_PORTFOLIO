@@ -6,12 +6,16 @@
   flex-direction: column;
   justify-content: center;
   padding: 2rem 0;
+   max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 .home__content {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  grid-template-areas: 
+  grid-template-areas:
     "social data image"
     "social data image";
   align-items: center;
@@ -51,13 +55,18 @@
 }
 
 .home__social-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--tech-slide-hover), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--tech-slide-hover),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -84,10 +93,14 @@
 .home__title {
   font-size: var(--big-font-size);
   margin-bottom: var(--mb-0-5);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: var(--font-semi-bold);
   line-height: 1.2;
-  background: linear-gradient(135deg, var(--title-color), var(--title-color-dark));
+  background: linear-gradient(
+    135deg,
+    var(--title-color),
+    var(--title-color-dark)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -113,7 +126,11 @@
   position: absolute;
   width: 70px;
   height: 2px;
-  background: linear-gradient(90deg, var(--notification-header-color), transparent);
+  background: linear-gradient(
+    90deg,
+    var(--notification-header-color),
+    transparent
+  );
   left: 0;
   top: 1rem;
   border-radius: 2px;
@@ -123,7 +140,7 @@
   max-width: 450px;
   margin-bottom: var(--mb-2);
   line-height: 1.7;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--text-color);
   font-size: var(--normal-font-size);
   opacity: 0.9;
@@ -172,8 +189,7 @@
   background-position: center;
   background-size: cover;
   border-radius: 50%;
-  box-shadow: 
-    inset 0 0 0 9px rgba(255, 255, 255, 0.1),
+  box-shadow: inset 0 0 0 9px rgba(255, 255, 255, 0.1),
     0 20px 40px rgba(0, 0, 0, 0.1);
   animation: profile__animate 8s ease-in-out infinite 1s;
   transition: all 0.5s ease;
@@ -196,16 +212,16 @@
 }
 
 .home__img::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -15px;
   left: -15px;
   right: -15px;
   bottom: -15px;
   background: linear-gradient(
-    45deg, 
-    var(--title-color), 
-    transparent, 
+    45deg,
+    var(--title-color),
+    transparent,
     var(--notification-header-color)
   );
   border-radius: 50%;
@@ -215,13 +231,13 @@
 }
 
 @keyframes profile__glow {
-  0% { 
-    opacity: 0.4; 
-    transform: scale(1) rotate(0deg); 
+  0% {
+    opacity: 0.4;
+    transform: scale(1) rotate(0deg);
   }
-  100% { 
-    opacity: 0.8; 
-    transform: scale(1.05) rotate(180deg); 
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05) rotate(180deg);
   }
 }
 
@@ -271,34 +287,34 @@
 @media screen and (max-width: 992px) {
   .home__content {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "image"
       "data"
       "social";
     text-align: center;
     gap: 2rem;
   }
-  
+
   .home__social {
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
   }
-  
+
   .home__img {
     width: 280px;
     height: 280px;
   }
-  
+
   .home__subtitle {
     padding-left: 3.75rem;
   }
-  
+
   .home__subtitle::before {
     width: 42px;
     top: 0.8rem;
   }
-  
+
   .home__stats {
     justify-content: center;
     gap: 1.5rem;
@@ -308,30 +324,32 @@
 @media screen and (max-width: 768px) {
   .home__container {
     padding: 1rem 0;
+      max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
   }
-  
+
   .home__content {
     gap: 1.5rem;
     padding: 1rem 0;
   }
-  
+
   .home__img {
     width: 250px;
     height: 250px;
-    box-shadow: 
-      inset 0 0 0 6px rgba(255, 255, 255, 0.1),
+    box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.1),
       0 15px 30px rgba(0, 0, 0, 0.1);
   }
-  
+
   .home__social-icon {
     font-size: 1.3rem;
     padding: 0.6rem;
   }
-  
+
   .home__stats {
     gap: 3rem;
   }
-  
+
   .home__scroll {
     display: none;
   }
@@ -342,16 +360,16 @@
     width: 220px;
     height: 220px;
   }
-  
+
   .home__social {
     gap: 0.75rem;
   }
-  
+
   .home__social-icon {
     font-size: 1.2rem;
     padding: 0.5rem;
   }
-  
+
   .home__stats {
     gap: 2rem;
   }
@@ -362,16 +380,16 @@
     width: 200px;
     height: 200px;
   }
-  
+
   .home__social-icon {
     font-size: 1.1rem;
     padding: 0.4rem;
   }
-  
+
   .home__stats {
     gap: 1rem;
   }
-  
+
   .home__stat-number {
     font-size: var(--h3-font-size);
   }
