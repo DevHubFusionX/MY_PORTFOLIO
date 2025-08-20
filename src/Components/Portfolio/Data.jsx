@@ -1,6 +1,6 @@
 import project1Image from "../../assets/Admin-Dashboard.png";
 import project2Image from "../../assets/Portfolio-pic.png";
-import project3Image from "../../assets/web-hosting.png";
+import project3Image from "../../assets/CMS.png";
 import project4Image from "../../assets/financer-pic.png";
 import devFinder from "../../assets/devFinder.png";
 import movieSite from "../../assets/movie-site.png";
@@ -62,29 +62,29 @@ export const projectsData = [
   },
   {
     id: 3,
-    title: "Eco Hosting Platform",
-    category: "Business Website",
+    title: "CMS Content Management System",
+    category: "Web Application",
     image: project3Image,
-    link: "https://vite-project-mu-two.vercel.app/",
-    github: "https://github.com/username/eco-hosting",
+    link: "https://fusionx-nine.vercel.app/",
+    github: "https://github.com/DevHubFusionX/CMS-Frontend",
     description:
-      "An eco-friendly web hosting platform with sustainable hosting solutions and green technology focus.",
+      "A CMS Content Management System for managing content of a website.",
     longDescription:
-      "A comprehensive web hosting platform emphasizing environmental sustainability. Features include hosting plans comparison, eco-friendly metrics, and user-friendly onboarding process for environmentally conscious businesses.",
+      "A CMS Content Management System for managing content of a website. It is a web application that allows users to manage the content of a website without the need for technical knowledge.",
     technologies: ["Vite", "React", "Tailwind CSS", "Node.js"],
     features: [
-      "Hosting plan comparison",
-      "Eco-friendly metrics",
-      "User onboarding",
-      "Payment integration",
-      "Customer support chat",
+      "Content Management",
+      "User Management",
+      "Role Management",
+      "Permission Management",
+      "Audit Trail",
     ],
     challenges:
-      "Designing an intuitive interface for complex hosting plan comparisons while maintaining focus on sustainability messaging.",
+      "Designing an intuitive interface for complex content management while maintaining focus on user experience.",
     solution:
       "Created interactive comparison tables and integrated visual sustainability metrics to help users make informed decisions.",
-    duration: "4 months",
-    role: "Full Stack Developer",
+    duration: "1 month",
+    role: "Frontend Developer",
   },
   {
     id: 4,
